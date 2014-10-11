@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sogistudio.online"
+    android:versionCode="14"
+    android:versionName="1.31" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="19" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CLEAR_CACHE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <permission
+        android:name="com.sogistudio.online.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.sogistudio.online.permission.C2D_MESSAGE" />
+
+    <permission
+        android:name="com.sogistudio.online.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.sogistudio.online.permission.MAPS_RECEIVE" />
+    
+    
+    <!-- App receives GCM messages. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name="com.sogistudio.online.SpikaApp"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/android:Theme.Light.NoTitleBar" >
+        
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAEjfVThq8_-mHeitjZYanpI_XALIyRSAU" />
+        
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+        
+
+        <activity
+            android:name="com.sogistudio.online.SplashScreenActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+				<data android:scheme="spikademo" android:host="user"/>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+			</intent-filter>
+            <intent-filter>
+				<data android:scheme="spikademo" android:host="group"/>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+			</intent-filter>
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.SignInActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.WallActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.extendables.SideBarActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.extendables.HookUpActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.extendables.HookUpFragmentActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.PasscodeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.UsersActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.GroupsActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.PhotoActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.CreateGroupActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+             >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.CameraCropActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.MyProfileActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.UserProfileActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.GroupProfileActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.MembersActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.LocationActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.RecordingActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.VoiceActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.InformationActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.SettingsActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.VideoActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask" 
+            android:configChanges="keyboardHidden|orientation|screenSize">
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.RecordingVideoActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.RecentActivityActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.dialog.Tutorial"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransparentDialogTheme" >
+        </activity>
+        <activity
+            android:name="com.sogistudio.online.ServersListActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+
+        <service android:name="com.sogistudio.online.GCMIntentService" />
+
+
+        <receiver
+            android:name="com.sogistudio.online.GCMReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.sogistudio.online" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
